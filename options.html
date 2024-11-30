@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online IDE Opener - Settings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #4285f4;
+      --text-color: #333;
+      --bg-color: #fff;
+      --border-color: #ddd;
+    }
+
+    [data-theme="dark"] {
+      --primary-color: #64b5f6;
+      --text-color: #e0e0e0;
+      --bg-color: #1e1e1e;
+      --border-color: #444;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .shortcut-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .shortcut-row input {
+      width: 200px;
+      margin-right: 10px;
+    }
+
+    .custom-ide-list {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .custom-ide {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 5px;
+      border-radius: 4px;
+    }
+
+    .custom-ide-info {
+      flex-grow: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: var(--primary-color);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .grid-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .history-list {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
+    }
+
+    .color-picker {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .color-option.selected {
+      border-color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Online IDE Opener Settings</h1>
+
+    <div class="section">
+      <h2>Appearance</h2>
+      <div class="form-group">
+        <label>Theme</label>
+        <select id="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="system">System Default</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Color Scheme</label>
+        <div class="color-picker">
+          <div class="color-option" style="background: #4285f4;" data-color="blue"></div>
+          <div class="color-option" style="background: #0f9d58;" data-color="green"></div>
+          <div class="color-option" style="background: #db4437;" data-color="red"></div>
+          <div class="color-option" style="background: #f4b400;" data-color="yellow"></div>
+          <div class="color-option" style="background: #673ab7;" data-color="purple"></div>
+        </div>
+      </div>
+
+      <div class="form-group grid-toggle">
+        <label>Grid View</label>
+        <label class="switch">
+          <input type="checkbox" id="gridView">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="form-group grid-toggle">
+        <label>Compact Mode</label>
+        <label class="switch">
+          <input type="checkbox" id="compactMode">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Custom IDEs</h2>
+      <div class="form-group">
+        <label>Add New IDE</label>
+        <input type="text" id="ideName" placeholder="IDE Name">
+        <input type="url" id="ideUrl" placeholder="IDE URL">
+        <input type="text" id="ideTags" placeholder="Tags (comma-separated)">
+        <textarea id="ideDescription" placeholder="Description"></textarea>
+        <button id="addIde">Add IDE</button>
+      </div>
+
+      <div class="custom-ide-list">
+        <!-- Custom IDEs will be listed here -->
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Keyboard Shortcuts</h2>
+      <div id="shortcutList">
+        <!-- Shortcut configurations will be listed here -->
+      </div>
+      <button id="resetShortcuts">Reset to Defaults</button>
+    </div>
+
+    <div class="section">
+      <h2>Recent History</h2>
+      <div class="history-list">
+        <!-- Recent IDE history will be shown here -->
+      </div>
+      <button id="clearHistory">Clear History</button>
+    </div>
+
+    <div class="section">
+      <h2>Data Management</h2>
+      <button id="exportSettings">Export Settings</button>
+      <button id="importSettings">Import Settings</button>
+      <button id="syncWorkspaces">Sync Workspaces</button>
+      <button id="resetSettings">Reset All Settings</button>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

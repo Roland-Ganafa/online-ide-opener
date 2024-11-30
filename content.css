@@ -1,0 +1,258 @@
+/* Quick Launch Overlay */
+#ide-opener-quick-launch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+}
+
+.quick-launch-container {
+  width: 600px;
+  max-width: 90%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.quick-launch-container input {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  outline: none;
+}
+
+.quick-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.quick-result {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quick-result:hover {
+  background: #f5f5f5;
+}
+
+.quick-result img {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+.quick-result-info {
+  flex-grow: 1;
+}
+
+.quick-result-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.quick-result-description {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Floating Action Button */
+#ide-opener-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999998;
+}
+
+.fab-main {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #4285f4;
+  border: none;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.fab-main:hover {
+  transform: scale(1.1);
+}
+
+.fab-menu {
+  position: absolute;
+  bottom: 64px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.fab-menu.active {
+  display: flex;
+}
+
+.fab-item {
+  padding: 8px 16px;
+  background: white;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+
+.fab-item:hover {
+  transform: scale(1.05);
+}
+
+.fab-item i {
+  font-size: 16px;
+  color: #4285f4;
+}
+
+/* Category styles */
+.category {
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.category-header:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .category-header:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.category-header i {
+  margin-right: 8px;
+}
+
+.category-header i:last-child {
+  margin-left: auto;
+  margin-right: 0;
+  transition: transform 0.2s;
+}
+
+.category-header span {
+  font-weight: 500;
+}
+
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.category-content.expanded {
+  max-height: 1000px; /* Adjust based on your content */
+  transition: max-height 0.3s ease-in;
+}
+
+.category-header i.fa-chevron-up {
+  transform: rotate(180deg);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .quick-launch-container {
+    background: #1e1e1e;
+    color: #e0e0e0;
+  }
+  
+  .quick-launch-container input {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    border-bottom-color: #333;
+  }
+  
+  .quick-result:hover {
+    background: #2d2d2d;
+  }
+  
+  .quick-result-description {
+    color: #999;
+  }
+  
+  .fab-item {
+    background: #2d2d2d;
+    color: #e0e0e0;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#ide-opener-quick-launch {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.quick-launch-container {
+  animation: slideUp 0.3s ease-out;
+}
+
+.fab-menu {
+  transform-origin: bottom right;
+}
+
+.fab-menu.active {
+  animation: slideUp 0.2s ease-out;
+}
+
+/* Accessibility */
+.fab-main:focus,
+.fab-item:focus,
+.quick-launch-container input:focus {
+  outline: 2px solid #4285f4;
+  outline-offset: 2px;
+}
+
+/* Touch Device Support */
+@media (hover: none) {
+  .fab-main {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .fab-item {
+    padding: 12px 20px;
+  }
+}

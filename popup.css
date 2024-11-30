@@ -1,0 +1,253 @@
+:root {
+  --primary-color: #4285f4;
+  --text-color: #333;
+  --bg-color: #fff;
+  --border-color: #ddd;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --primary-color: #64b5f6;
+  --text-color: #e0e0e0;
+  --bg-color: #1e1e1e;
+  --border-color: #444;
+  --hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  width: 400px;
+  padding: 15px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Buttons */
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--text-color);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Search */
+.search-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 8px 32px 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+/* Categories */
+.category {
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.category-header:hover {
+  background-color: var(--hover-bg);
+}
+
+.category-header i {
+  margin-right: 8px;
+}
+
+.category-header i:last-child {
+  margin-left: auto;
+  margin-right: 0;
+  transition: transform 0.2s;
+}
+
+.category-header span {
+  font-weight: 500;
+}
+
+.category-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.category-content.expanded {
+  max-height: 1000px;
+}
+
+/* IDE Buttons */
+.ide-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-color);
+  transition: background-color 0.2s;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ide-button:last-child {
+  border-bottom: none;
+}
+
+.ide-button:hover {
+  background-color: var(--hover-bg);
+}
+
+.ide-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ide-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.ide-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ide-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.ide-description {
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.ide-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4caf50;
+}
+
+.keyboard-shortcut {
+  font-size: 12px;
+  opacity: 0.7;
+  padding: 2px 6px;
+  background-color: var(--hover-bg);
+  border-radius: 4px;
+}
+
+.star-icon {
+  color: var(--primary-color);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.star-icon.active {
+  opacity: 1;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 2px 6px;
+  background-color: var(--hover-bg);
+  border-radius: 4px;
+  color: var(--text-color);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+#customIdeButton {
+  padding: 6px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#customIdeButton:hover {
+  opacity: 0.9;
+}
+
+/* Help text */
+.footer span {
+  font-size: 12px;
+  opacity: 0.7;
+}

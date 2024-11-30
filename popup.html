@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online IDE Opener</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-actions">
+      <button class="icon-button" id="themeToggle" title="Toggle Theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="icon-button" id="viewToggle" title="Toggle View">
+        <i class="fas fa-th-large"></i>
+      </button>
+      <button class="icon-button" id="compactToggle" title="Toggle Compact Mode">
+        <i class="fas fa-compress-alt"></i>
+      </button>
+      <button class="icon-button" id="settingsButton" title="Settings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search IDEs... (Press '/' to focus)">
+    <i class="fas fa-search search-icon"></i>
+  </div>
+
+  <div class="categories">
+    <div class="category" id="favorites">
+      <div class="category-header">
+        <i class="fas fa-star"></i>
+        <span>Favorites</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="category-content" id="favoritesContent">
+        <!-- Favorites will be populated dynamically -->
+      </div>
+    </div>
+
+    <div class="category" id="popularIdes">
+      <div class="category-header">
+        <i class="fas fa-fire"></i>
+        <span>Popular IDEs</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="category-content" id="popularIdesContent">
+        <!-- IDEs will be populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Press '?' for help</span>
+    <button id="customIdeButton">Add Custom IDE</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
