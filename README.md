@@ -1,7 +1,10 @@
 # Online IDE Opener
 
 [![CI](https://github.com/Roland-Ganafa/online-ide-opener/actions/workflows/ci.yml/badge.svg)](https://github.com/Roland-Ganafa/online-ide-opener/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/Roland-Ganafa/online-ide-opener/branch/main/graph/badge.svg)](https://codecov.io/gh/Roland-Ganafa/online-ide-opener)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Roland-Ganafa/online-ide-opener)](https://github.com/Roland-Ganafa/online-ide-opener/releases)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/YOUR_EXTENSION_ID)](https://chrome.google.com/webstore/detail/YOUR_EXTENSION_ID)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/YOUR_EXTENSION_ID)](https://chrome.google.com/webstore/detail/YOUR_EXTENSION_ID)
 [![License](https://img.shields.io/github/license/Roland-Ganafa/online-ide-opener)](LICENSE)
 
 A powerful Chrome extension that opens repositories in your favorite online IDEs with just one click. Choose from multiple online development environments and start coding instantly.
